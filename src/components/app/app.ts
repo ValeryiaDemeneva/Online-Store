@@ -1,3 +1,13 @@
-class App {}
+import { View } from '../view/view';
+
+class App {
+    view: View;
+    constructor() {
+        this.view = new View();
+    }
+    start() {
+        this.view.rendering();
+    }
+}
 
 export default App;
