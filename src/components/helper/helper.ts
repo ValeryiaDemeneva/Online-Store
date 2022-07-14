@@ -1,4 +1,4 @@
-export const createImage = (tag, src, classList) => {
+export const createImg = (tag, src, classList) => {
     const elem = document.createElement(tag);
     elem.src = src;
     elem.classList.add(classList);
@@ -13,7 +13,7 @@ export const createInput = (tag, type, value, classList) => {
     return elem;
 };
 
-export const createTag = (tag, classList, value) => {
+export const createTag = (tag, classList = '', value = '') => {
     const elem = document.createElement(tag);
     elem.innerHTML = value;
     classList && elem.classList.add(classList);

@@ -1,45 +1,54 @@
 import { data } from '../../data/data';
 import './view.css';
+import { createTag } from '../helper/helper';
+import { createImg } from '../helper/helper';
 export class View {
     root: HTMLElement;
+
     constructor() {
         this.root = document.querySelector('.root') as HTMLElement;
     }
     rendering = () => {
-        const filterArr = data;
-        const section = document.createElement('section');
-        section.classList.add('section');
+        const brandStorage = localStorage.getItem('brand');
+        const colorStorage = localStorage.getItem('color');
+
+        let filterArr = data;
+        if (brandStorage && colorStorage) {
+            filterArr = data.filter((item) => item.color === colorStorage && item.brand === brandStorage);
+        } else if (colorStorage && !brandStorage) {
+            filterArr = data.filter((item) => item.color === colorStorage);
+        } else if (!colorStorage && brandStorage) {
+            filterArr = data.filter((item) => item.brand === brandStorage);
+        } else if (!colorStorage && !brandStorage) {
+            filterArr = data;
+        }
+
+        const section = createTag('section', 'view_section', '');
         this.root.append(section);
         filterArr.forEach((element) => {
-            const card = document.createElement('div');
-            card.classList.add('card');
+            const card = createTag('div', 'card', '');
             section.append(card);
-
-            const image = document.createElement('img');
-            image.src = element.image;
-            image.classList.add('image');
+            const image = createImg('img', element.image, 'image');
             card.append(image);
-            const title = document.createElement('p');
-            title.innerHTML = element.title;
-            title.classList.add('card-title');
+            const title = createTag('h3', 'card-title', element.title);
             card.append(title);
-            const brand = document.createElement('p');
-            brand.innerHTML = element.brand;
+            const brand = createTag('p', 'card-item', `Brand:       ${element.brand}`);
             card.append(brand);
-            const color = document.createElement('p');
-            color.innerHTML = element.color;
+            const color = createTag('p', 'card-item', `Color: ${element.color}`);
             card.append(color);
-            const count = document.createElement('p');
-            count.innerHTML = `${element.count}`;
-            card.append(count);
-            const age = document.createElement('p');
-            age.innerHTML = `${element.age}`;
+            const age = createTag('p', 'card-item', `Collection: ${element.age} year`);
             card.append(age);
-            const price = document.createElement('p');
-            price.innerHTML = `${element.price}`;
+            const size = createTag('p', 'card-item', `Size: ${element.size}`);
+            card.append(size);
+            const count = createTag('p', 'card-item', `Amount: ${element.count}`);
+            card.append(count);
+
+            const price = createTag('p', 'card-item', `Price: ${element.price}$`);
             card.append(price);
         });
     };
 
-    // deleteCards = () => {};
+    deleteCards = () => {
+        document.querySelector('.view_section')?.remove();
+    };
 }
