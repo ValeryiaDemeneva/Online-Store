@@ -16,6 +16,14 @@ export const createInput = (tag, type, value, classList) => {
 export const createTag = (tag, classList = '', value = '') => {
     const elem = document.createElement(tag);
     elem.innerHTML = value;
+    classList && classList !== 'false' && elem.classList.add(classList);
+    return elem;
+};
+
+export const createTagColor = (tag, classList, value = '', id = '') => {
+    const elem = document.createElement(tag);
+    elem.innerHTML = value;
+    elem.id = id;
     classList && elem.classList.add(classList);
     return elem;
 };

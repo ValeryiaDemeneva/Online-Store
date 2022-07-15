@@ -45,6 +45,7 @@
     },
     "dependencies": {
         "bootstrap": "^5.2.0-beta1",
+        "nouislider": "^15.6.0",
         "url-loader": "^4.1.1"
     }
 }
