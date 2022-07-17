@@ -52,7 +52,8 @@
     opacity: 0.4;
 }
 
-#formatting-slider {
-    width: 400px;
-    margin: 100px;
+.year-slider,
+.prices-slider {
+    width: 70%;
+    margin: 20px;
 }

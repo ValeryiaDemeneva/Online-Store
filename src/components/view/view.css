@@ -9,7 +9,19 @@
     width: 300px;
     box-shadow: -8px 5px 8px 5px rgba(34, 60, 80, 0.2);
     margin: 20px;
+    opacity: 0.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
+    padding: 10px;
+    transition: 0.2s;
+    max-height: 620px;
+}
+
+.card:hover {
+    background-color: floralwhite;
+    transition: 0.2s;
 }
 .image {
     width: 100%;
@@ -58,6 +70,8 @@
 }
 .colors {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
 .all {
@@ -69,12 +83,27 @@
 }
 
 .popular-item {
-    color: purple;
-    background-color: white;
-    border: 2px solid red;
+    color: white !important;
+    background-color: black !important;
 }
 
 .buy-item {
-    width: 200px;
-    height: 50px;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    /* border: 1px solid #91c9ff; */
+    outline: none;
+    box-shadow: -8px 5px 8px 5px rgba(34, 60, 80, 0.2);
+    transition: 1s ease-in-out;
+}
+.buy-item:hover {
+    transition: 1s ease-in-out;
+    background: grey;
+}
+
+.selected-card {
+    background-color: floralwhite;
+
+    opacity: 1;
 }

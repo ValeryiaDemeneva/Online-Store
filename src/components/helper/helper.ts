@@ -27,3 +27,10 @@ export const createTagColor = (tag, classList, value = '', id = '') => {
     classList && elem.classList.add(classList);
     return elem;
 };
+
+export const createCounter = (tag, classList, value) => {
+    const elem = document.createElement(tag);
+    elem.innerHTML = value;
+    classList && classList !== 'false' && elem.classList.add(classList);
+    return elem;
+};

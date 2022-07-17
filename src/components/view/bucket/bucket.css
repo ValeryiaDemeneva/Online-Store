@@ -1,0 +1,17 @@
+.bucket {
+    display: flex;
+    justify-content: flex-end;
+}
+.bucket_section {
+    width: 100px;
+    height: 100px;
+    background: url('../../../image/buc.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

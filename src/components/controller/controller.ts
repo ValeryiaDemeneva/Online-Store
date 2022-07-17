@@ -1,14 +1,15 @@
 import './controller.css';
-import * as noUiSlider from 'noUiSlider';
 import 'nouislider/dist/nouislider.css';
 import { createTag, createTagColor } from '../helper/helper';
 import { View } from '../view/view';
+import { SlidesController } from './sliderController.ts/sliderController';
 export class Controller {
     root: HTMLElement;
     section: HTMLElement;
     view: View;
     controllers: string[];
     selectedItems: string[];
+    slidesController: SlidesController;
     popularStorage: string | null;
     constructor() {
         this.root = document.querySelector('.root') as HTMLElement;
@@ -16,51 +17,14 @@ export class Controller {
         this.section = createTag('section', 'controller_section', '');
         this.root.append(this.section);
         this.controllers = ['.color', '.size', '.brand'];
+        this.slidesController = new SlidesController();
         this.selectedItems = ['selected-size', 'selected-brand', 'selected-color'];
         this.view = new View();
         this.popularStorage = localStorage.getItem('popular');
     }
 
-    onSlides = () => {
-        const formatForSlider = {
-            from: function (formattedValue) {
-                return Number(formattedValue);
-            },
-            to: function (numericValue) {
-                return Math.round(numericValue);
-            },
-        };
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore: Unreachable code error
-        const formatSlider = document.getElementById('formatting-slider') as noUiSlider;
-        noUiSlider.create(formatSlider, {
-            start: ['00.0', '200.0'],
-            range: {
-                min: 0,
-                max: 200,
-            },
-            connect: true,
-            format: formatForSlider,
-            tooltips: {
-                to: function (numericValue) {
-                    return numericValue.toFixed(1);
-                },
-            },
-        });
-
-        formatSlider.noUiSlider.set(['00.0', '200.0']);
-        const formatValues = [document?.getElementById('formatting-start'), document?.getElementById('formatting-end')];
-        formatSlider.noUiSlider.on('update', (values, handle) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore: Unreachable code error
-            formatValues[handle].innerHTML = values[handle];
-            console.log(formatValues[0]?.innerHTML, formatValues[1]?.innerHTML);
-            this.view.deleteCards();
-            this.view.rendering(formatValues[0]?.innerHTML, formatValues[1]?.innerHTML);
-        });
-    };
     renderingBrands = () => {
-        const brandStorage = localStorage.getItem('brand'); // Zara
+        const brandStorage = localStorage.getItem('brand');
         const parsed = brandStorage && JSON.parse(brandStorage);
         const brand = createTag('div', 'brand', '');
         const brandNameArr: string[] = parsed || [];
@@ -275,7 +239,7 @@ export class Controller {
         this.renderingColors();
         this.renderingSizes();
         this.renderingPopular();
-        this.onSlides();
+        this.slidesController.init();
         this.renderingReset();
         this.popularStorage && this.onDisableControllers(true);
     };

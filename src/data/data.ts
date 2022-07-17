@@ -22,12 +22,13 @@ import {
     twentySecond,
     twentyThird,
     twentyFourth,
+    red,
 } from './images';
 
 export const data = [
     {
         image: first,
-        title: "Women's dress",
+        title: 'Singlet',
         age: 2022,
         color: 'beige',
         price: 150,
@@ -39,8 +40,8 @@ export const data = [
     },
     {
         image: second,
-        title: "Women's dress",
-        age: 2020,
+        title: 'Sneakers',
+        age: 2021,
         color: 'colorful',
         price: 90,
         count: 10,
@@ -51,7 +52,7 @@ export const data = [
     },
     {
         image: third,
-        title: "Women's dress",
+        title: 'Poloshirt',
         age: 2020,
         color: 'white',
         price: 100,
@@ -63,7 +64,7 @@ export const data = [
     },
     {
         image: fourth,
-        title: "Women's dress",
+        title: 'Umbrella',
         age: 2021,
         color: 'violet',
         price: 80,
@@ -75,7 +76,7 @@ export const data = [
     },
     {
         image: fifth,
-        title: "Women's dress",
+        title: 'Swimsuit',
         age: 2020,
         color: 'black',
         price: 95,
@@ -87,7 +88,7 @@ export const data = [
     },
     {
         image: sixth,
-        title: "Women's dress",
+        title: 'Cap',
         age: 2021,
         color: 'blue',
         price: 130,
@@ -99,8 +100,8 @@ export const data = [
     },
     {
         image: seventh,
-        title: "Women's dress",
-        age: 2022,
+        title: 'Blazer',
+        age: 2017,
         color: 'red',
         price: 170,
         count: 6,
@@ -111,7 +112,7 @@ export const data = [
     },
     {
         image: eighth,
-        title: "Women's dress",
+        title: 'Sportcoat',
         age: 2022,
         color: 'orange',
         price: 100,
@@ -123,7 +124,7 @@ export const data = [
     },
     {
         image: ninth,
-        title: "Women's dress",
+        title: 'Scarf',
         age: 2022,
         color: 'white',
         price: 120,
@@ -135,7 +136,7 @@ export const data = [
     },
     {
         image: tenth,
-        title: "Women's dress",
+        title: 'Cardigan',
         age: 2022,
         color: 'brown',
         price: 120,
@@ -147,7 +148,7 @@ export const data = [
     },
     {
         image: eleventh,
-        title: "Women's dress",
+        title: 'Lycrashorts',
         age: 2022,
         color: 'lilac',
         price: 125,
@@ -159,8 +160,8 @@ export const data = [
     },
     {
         image: twelfth,
-        title: "Women's dress",
-        age: 2021,
+        title: 'Jumpsuit',
+        age: 2015,
         color: 'green',
         price: 110,
         count: 3,
@@ -171,7 +172,7 @@ export const data = [
     },
     {
         image: thirteenth,
-        title: "Women's dress",
+        title: 'Pant',
         age: 2021,
         color: 'colorful',
         price: 129,
@@ -184,8 +185,8 @@ export const data = [
 
     {
         image: fifteenth,
-        title: "Women's dress",
-        age: 2020,
+        title: 'Pajamas',
+        age: 2017,
         color: 'black',
         price: 85,
         count: 8,
@@ -196,7 +197,7 @@ export const data = [
     },
     {
         image: sixteenth,
-        title: "Women's dress",
+        title: 'BlackMoon',
         age: 2020,
         color: 'black',
         price: 97,
@@ -208,8 +209,8 @@ export const data = [
     },
     {
         image: seventeenth,
-        title: "Women's dress",
-        age: 2022,
+        title: 'Poncho',
+        age: 2018,
         color: 'blue',
         price: 149,
         count: 5,
@@ -220,8 +221,8 @@ export const data = [
     },
     {
         image: eighteenth,
-        title: "Women's dress",
-        age: 2021,
+        title: 'Windbreakers',
+        age: 2018,
         color: 'white',
         price: 139,
         count: 3,
@@ -232,8 +233,8 @@ export const data = [
     },
     {
         image: nineteenth,
-        title: "Women's dress",
-        age: 2022,
+        title: 'Tie',
+        age: 2019,
         color: 'black',
         price: 99,
         count: 5,
@@ -244,8 +245,8 @@ export const data = [
     },
     {
         image: twentieth,
-        title: "Women's dress",
-        age: 2019,
+        title: 'Waistcoat',
+        age: 2022,
         color: 'black',
         price: 169,
         count: 5,
@@ -256,7 +257,7 @@ export const data = [
     },
     {
         image: twentyFirst,
-        title: "Women's dress",
+        title: 'Vest',
         age: 2021,
         color: 'black',
         price: 180,
@@ -268,7 +269,7 @@ export const data = [
     },
     {
         image: twentySecond,
-        title: "Women's dress",
+        title: 'Tuxedo',
         age: 2022,
         color: 'blue',
         price: 125,
@@ -280,7 +281,7 @@ export const data = [
     },
     {
         image: twentyThird,
-        title: "Women's dress",
+        title: 'Robe',
         age: 2021,
         color: 'white',
         price: 50,
@@ -292,7 +293,7 @@ export const data = [
     },
     {
         image: twentyFourth,
-        title: "Women's dress",
+        title: 'Sweatshirt',
         age: 2020,
         color: 'green',
         price: 30,
@@ -304,8 +305,8 @@ export const data = [
     },
     {
         image: twentyFourth,
-        title: "Women's dress",
-        age: 2020,
+        title: 'Sweater',
+        age: 2015,
         color: 'black',
         price: 50,
         count: 5,
@@ -316,8 +317,8 @@ export const data = [
     },
     {
         image: twentyFourth,
-        title: "Women's dress",
-        age: 2020,
+        title: 'Sportcoat',
+        age: 2016,
         color: 'green',
         price: 20,
         count: 5,
@@ -327,9 +328,9 @@ export const data = [
         popular: true,
     },
     {
-        image: twentyFourth,
-        title: "Women's dress",
-        age: 2020,
+        image: red,
+        title: 'Singlet',
+        age: 2018,
         color: 'red',
         price: 200,
         count: 5,

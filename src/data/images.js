@@ -21,6 +21,7 @@ import twentyFirst from '../image/21.jpg';
 import twentySecond from '../image/22.jpg';
 import twentyThird from '../image/23.jpg';
 import twentyFourth from '../image/24.jpg';
+import red from '../image/red2.jpg';
 
 export {
     first,
@@ -46,4 +47,5 @@ export {
     twentySecond,
     twentyThird,
     twentyFourth,
+    red
 };
