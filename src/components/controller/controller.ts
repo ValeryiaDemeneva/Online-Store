@@ -1,3 +1,4 @@
+import { createTagId } from './../helper/helper';
 import './controller.css';
 import 'nouislider/dist/nouislider.css';
 import { createTag, createTagColor } from '../helper/helper';
@@ -197,16 +198,41 @@ export class Controller {
     renderingReset = () => {
         const reset = createTag('div', 'reset', '');
         this.section.append(reset);
-        const popularReset = createTag('h2', 'reset_title', 'Reset');
-        reset.append(popularReset);
+        const resetTitle = createTag('h2', 'reset_title', 'Reset Filters');
+        reset.append(resetTitle);
         reset.addEventListener('click', () => {
-            localStorage.clear();
+            localStorage.removeItem('color');
+            localStorage.removeItem('toPrice');
+            localStorage.removeItem('fromPrice');
+            localStorage.removeItem('toYear');
+            localStorage.removeItem('fromYear');
+            localStorage.removeItem('brand');
+            localStorage.removeItem('size');
+            localStorage.removeItem('popular');
+            document.getElementById('formatting-slider')?.remove();
+            document.getElementById('formatting-slider-year')?.remove();
+            const pricesSlider = document.querySelector('.prices-slider');
+            createTagId('div', 'formatting-slider', pricesSlider);
+            const yearSlider = document.querySelector('.year-slider');
+            createTagId('div', 'formatting-slider-year', yearSlider);
+            this.slidesController.init();
             this.onDisableControllers(false);
             this.onRemoveSelection(this.selectedItems);
             this.onRemoveAllSelected('selected-brand');
             document.querySelector('.selected-popular')?.classList.remove('selected-popular');
             this.view.deleteCards();
             this.view.rendering();
+        });
+    };
+    renderingResetStorage = () => {
+        const resetStorage = createTag('div', 'resetStorage', '');
+        this.section.append(resetStorage);
+        const resetStorageTitle = createTag('h2', 'reset_title', 'Full Reload');
+        resetStorage.append(resetStorageTitle);
+        resetStorage.addEventListener('click', () => {
+            localStorage.clear();
+
+            window.location.reload();
         });
     };
 
@@ -241,6 +267,8 @@ export class Controller {
         this.renderingPopular();
         this.slidesController.init();
         this.renderingReset();
+        this.renderingResetStorage();
+
         this.popularStorage && this.onDisableControllers(true);
     };
 }

@@ -9,7 +9,7 @@ export const createInput = (tag, type, value, classList) => {
     const elem = document.createElement(tag);
     elem.type = type;
     elem.value = value;
-    elem.classList.add(classList);
+    classList && classList !== 'false' && elem.classList.add(classList);
     return elem;
 };
 
@@ -20,6 +20,12 @@ export const createTag = (tag, classList = '', value = '') => {
     return elem;
 };
 
+export const createTagId = (tag, id, parent) => {
+    const elem = document.createElement(tag);
+    elem.id = id;
+    parent.append(elem);
+    return elem;
+};
 export const createTagColor = (tag, classList, value = '', id = '') => {
     const elem = document.createElement(tag);
     elem.innerHTML = value;

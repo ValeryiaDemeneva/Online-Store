@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../src/image/phone.jpg');
+}
+
 .app {
     margin-top: 50px;
 }
@@ -17,5 +26,129 @@
 }
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+header {
+    margin: 0 2%;
+}
+.title {
+    font-size: 4em;
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(255, 0, 200);
+    padding-right: 0.5em;
+}
+
+.bucket-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(255, 0, 200);
+}
+.search_section input {
+    font-style: italic;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.124);
+    background-color: rgba(217, 217, 213, 0.345);
+    border-radius: 2px;
+    padding-left: 10px;
+    height: 48px;
+    width: 312px;
+    margin-left: 1em;
+}
+
+.noUi-connect {
+    background: rgba(181, 181, 181, 0.257) !important;
+}
+.lineSort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 20%;
+}
+#formatting-slider-year {
+    width: 20em;
+}
+#formatting-slider {
+    width: 20em;
+}
+#formatting-end {
+    margin-right: 20em;
+}
+.sort-alphabet-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+.sort-alphabet-up {
+    border-radius: 0.9em;
+    width: 1.5em;
+    height: 1.5em;
+}
+.sort-alphabet-down {
+    border-radius: 0.9em;
+    width: 1.5em;
+    height: 1.5em;
+}
+.sort-year-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0.5em 0;
+}
+.sort-year-up {
+    border-radius: 0.9em;
+    width: 1.5em;
+    height: 1.5em;
+}
+.sort-year-down {
+    border-radius: 0.9em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.brand,
+.color,
+.size,
+.popular_title,
+.reset,
+.resetStorage {
+    cursor: pointer;
+}
+
+@media (max-width: 840px) {
+    .lineSort {
+        flex-direction: column;
+    }
+    .sort-alphabet-section {
+        width: 69px;
+    }
+    .sort-year-section {
+        width: 69px;
+    }
+    .year-slider {
+        width: 70%;
+        margin: 20px;
+        margin-top: 53px;
+    }
+}
+
+.imgRss {
+    width: 160px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('./image/rss.png');
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    font-size: 2.5rem;
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(255, 0, 200);
 }

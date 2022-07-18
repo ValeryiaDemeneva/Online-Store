@@ -2,7 +2,7 @@
     border: 5px solid black;
 }
 .selected-popular {
-    color: green;
+    color: rgb(255, 0, 200);
 }
 
 .colors li {

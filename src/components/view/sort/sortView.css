@@ -1,0 +1,13 @@
+.sort-year-up,
+.sort-year-down {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-sort-year {
+    border: 5px solid rgb(255, 0, 200);;
+}
