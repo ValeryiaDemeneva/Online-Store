@@ -1,14 +1,17 @@
+import { IData } from './../../data/data';
 import { data } from '../../data/data';
 import './view.css';
 import { createTag } from '../helper/helper';
 import { createImg } from '../helper/helper';
+
 export class View {
     root: HTMLElement;
 
     constructor() {
         this.root = document.querySelector('.root') as HTMLElement;
     }
-    settings = () => {
+
+    settings = (data: IData[]) => {
         const brandStorage: string | null = localStorage.getItem('brand');
         const parsed = brandStorage ? JSON.parse(brandStorage) : null;
         const colorStorage = localStorage.getItem('color');
@@ -22,7 +25,7 @@ export class View {
         const sortByYearStorage = localStorage.getItem('sortYear');
         const sortByAlphabetStorage = localStorage.getItem('sortAlphabet');
 
-        let filterArr = data;
+        let filterArr: IData[] = data;
         if (popularStorage) {
             filterArr = data.filter((item) => item.popular);
         } else {
@@ -74,12 +77,12 @@ export class View {
         return filterArr;
     };
 
-    onClickButtonBucket = (card, element) => {
+    onClickButtonBucket = (card: HTMLElement, element: IData) => {
         const selectedTitleStorage: string | null = localStorage.getItem('selectedTitles');
         const parsed: string[] = selectedTitleStorage && JSON.parse(selectedTitleStorage);
         const selectedTitles: string[] = parsed || [];
         const elementTitle = element.title;
-        const bucketStorage = localStorage.getItem('bucket');
+        const bucketStorage: string | null = localStorage.getItem('bucket');
 
         if (!selectedTitles.includes(elementTitle) && selectedTitles.length < 20) {
             selectedTitles.push(elementTitle);
@@ -93,8 +96,6 @@ export class View {
         }
         const count = document.querySelector('.bucket_count');
         const currentCount = count?.innerHTML;
-        console.log(currentCount);
-        console.log(selectedTitles);
         if (selectedTitles?.includes(element.title)) {
             if (count && currentCount && selectedTitles.length <= 20) {
                 bucketStorage && localStorage.setItem('bucket', `${+bucketStorage + 1}`);
@@ -115,7 +116,7 @@ export class View {
     rendering = () => {
         const selectedTitleStorage: string | null = localStorage.getItem('selectedTitles');
         const parsed: string[] = selectedTitleStorage && JSON.parse(selectedTitleStorage);
-        const renderArray = this.settings();
+        const renderArray = this.settings(data);
         const section = createTag('section', 'view_section', '');
         const empty = createTag('section', 'view_empty', `Sorry, we can't find anything for your filters`);
 

@@ -12,16 +12,16 @@ export class SlidesController {
         const from: string | null | number = localStorage.getItem('fromPrice');
         const to: string | null | number = localStorage.getItem('toPrice');
         const formatForSlider = {
-            from: function (formattedValue) {
+            from: function (formattedValue: string) {
                 return Number(formattedValue);
             },
-            to: function (numericValue) {
+            to: function (numericValue: number) {
                 return Math.round(numericValue);
             },
         };
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore: Unreachable code error
-        const formatSlider = document.getElementById('formatting-slider') as noUiSlider;
+        const formatSlider = document.getElementById('formatting-slider') as noUiSlider.Instance;
         noUiSlider.create(formatSlider, {
             start: [from || 0, to || 200],
             range: {
@@ -38,7 +38,7 @@ export class SlidesController {
         });
         formatSlider.noUiSlider.set([from, to]);
         const formatValues = [document?.getElementById('formatting-start'), document?.getElementById('formatting-end')];
-        formatSlider.noUiSlider.on('update', (values, handle) => {
+        formatSlider.noUiSlider.on('update', (values: object, handle: number) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Unreachable code error
             formatValues[handle].innerHTML = values[handle];
@@ -53,10 +53,10 @@ export class SlidesController {
         const from: string | null | number = localStorage.getItem('fromYear');
         const to: string | null | number = localStorage.getItem('toYear');
         const formatForSlider = {
-            from: function (formattedValue) {
+            from: function (formattedValue: string) {
                 return Number(formattedValue);
             },
-            to: function (numericValue) {
+            to: function (numericValue: number) {
                 return Math.round(numericValue);
             },
         };
@@ -82,7 +82,7 @@ export class SlidesController {
             document?.getElementById('formatting-start-year'),
             document?.getElementById('formatting-end-year'),
         ];
-        formatSlider.noUiSlider.on('update', (values, handle) => {
+        formatSlider.noUiSlider.on('update', (values: object, handle: number) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore: Unreachable code error
             formatValues[handle].innerHTML = values[handle];

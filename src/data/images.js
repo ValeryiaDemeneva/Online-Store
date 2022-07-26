@@ -47,5 +47,5 @@ export {
     twentySecond,
     twentyThird,
     twentyFourth,
-    red
+    red,
 };

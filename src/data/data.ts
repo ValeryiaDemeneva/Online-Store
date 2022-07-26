@@ -25,7 +25,24 @@ import {
     red,
 } from './images';
 
-export const data = [
+export interface IData {
+    image: string;
+    title: string;
+    age: number;
+    color: string;
+    price: number;
+    count: number;
+    brand: string;
+    backet: boolean;
+    size: string;
+    popular: boolean;
+}
+
+export interface ICounter<T> {
+    counter: T;
+}
+
+export const data: IData[] = [
     {
         image: first,
         title: 'Singlet',

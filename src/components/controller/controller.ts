@@ -25,80 +25,83 @@ export class Controller {
     }
 
     renderingBrands = () => {
-        const brandStorage = localStorage.getItem('brand');
-        const parsed = brandStorage && JSON.parse(brandStorage);
+        const brandStorage: string | null = localStorage.getItem('brand');
+        const parsed: string[] = brandStorage && JSON.parse(brandStorage);
+        console.log(parsed, typeof parsed);
         const brand = createTag('div', 'brand', '');
         const brandNameArr: string[] = parsed || [];
         this.section.append(brand);
         const brand_title = createTag('h2', 'controller_title', 'Brand');
         brand.append(brand_title);
-        const brandList = createTag('ul', '', '');
+        const brandList = createTag('ul', '', '') as HTMLElement;
         brand.append(brandList);
         const brand_zara = createTag('li', `${parsed?.includes('Zara') && 'selected-brand'}`, 'Zara');
-        brandList.append(brand_zara);
+        brandList && brandList.append(brand_zara);
         const brand_bershka = createTag('li', `${parsed?.includes('Bershka') && 'selected-brand'}`, 'Bershka');
-        brandList.append(brand_bershka);
+        brandList && brandList.append(brand_bershka);
         const brand_reserved = createTag('li', `${parsed?.includes('Reserved') && 'selected-brand'}`, 'Reserved');
-        brandList.append(brand_reserved);
+        brandList && brandList.append(brand_reserved);
         const brand_pudra = createTag('li', `${parsed?.includes('Pudra') && 'selected-brand'}`, 'Pudra');
-        brandList.append(brand_pudra);
+        brandList && brandList.append(brand_pudra);
         const brand_lollipop = createTag('li', `${parsed?.includes('Lollipop') && 'selected-brand'}`, 'Lollipop');
-        brandList.append(brand_lollipop);
-        brandList.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LI') {
-                const brandName = event.target.innerHTML;
-                event.target.classList.contains('selected-brand')
-                    ? event.target.classList.remove('selected-brand')
-                    : event.target.classList.add('selected-brand');
-                if (brandNameArr.includes(brandName)) {
-                    const i = brandNameArr.indexOf(brandName);
-                    brandNameArr.splice(i, 1);
-                } else {
-                    brandNameArr.push(brandName);
-                }
-                brandNameArr.length
-                    ? localStorage.setItem('brand', JSON.stringify(brandNameArr))
-                    : localStorage.removeItem('brand');
+        brandList && brandList.append(brand_lollipop);
+        brandList &&
+            brandList.addEventListener('click', (event) => {
+                const target = event.target as HTMLElement;
+                if (target.tagName === 'LI') {
+                    const brandName = target.innerHTML;
+                    target.classList.contains('selected-brand')
+                        ? target.classList.remove('selected-brand')
+                        : target.classList.add('selected-brand');
+                    if (brandNameArr.includes(brandName)) {
+                        const i = brandNameArr.indexOf(brandName);
+                        brandNameArr.splice(i, 1);
+                    } else {
+                        brandNameArr.push(brandName);
+                    }
+                    brandNameArr.length
+                        ? localStorage.setItem('brand', JSON.stringify(brandNameArr))
+                        : localStorage.removeItem('brand');
 
-                this.view.deleteCards();
-                this.view.rendering();
-            }
-        });
+                    this.view.deleteCards();
+                    this.view.rendering();
+                }
+            });
     };
     renderingColors = () => {
-        const colorStorage = localStorage.getItem('color');
+        const colorStorage: string | null = localStorage.getItem('color');
         const color = createTag('div', 'color', '');
         this.section.append(color);
         const colorsTitle = createTag('h2', 'controller_title', 'Colors');
         color.append(colorsTitle);
-        const colorList = createTag('ul', 'colors', '');
+        const colorList = createTag('ul', 'colors', '') as HTMLElement;
         color.append(colorList);
         const colorsAll = createTag('li', 'all', 'all');
-        colorList.append(colorsAll);
+        colorList && colorList.append(colorsAll);
         const colorsBeige = createTagColor('li', `${colorStorage === 'beige' && 'selected-color'}`, 'beige', 'beige');
-        colorList.append(colorsBeige);
+        colorList && colorList.append(colorsBeige);
         const colorful = createTagColor(
             'li',
             `${colorStorage === 'colorful' && 'selected-color'}`,
             'colorful',
             'colorful'
         );
-        colorList.append(colorful);
+        colorList && colorList.append(colorful);
         const colorsWhite = createTagColor('li', `${colorStorage === 'white' && 'selected-color'}`, 'white', 'white');
-        colorList.append(colorsWhite);
+        colorList && colorList.append(colorsWhite);
         const colorsViolet = createTagColor(
             'li',
             `${colorStorage === 'violet' && 'selected-color'}`,
             'violet',
             'violet'
         );
-        colorList.append(colorsViolet);
+        colorList && colorList.append(colorsViolet);
         const colorsBlack = createTagColor('li', `${colorStorage === 'black' && 'selected-color'}`, 'black', 'black');
-        colorList.append(colorsBlack);
+        colorList && colorList.append(colorsBlack);
         const colorsBlue = createTagColor('li', `${colorStorage === 'blue' && 'selected-color'}`, 'blue', 'blue');
-        colorList.append(colorsBlue);
+        colorList && colorList.append(colorsBlue);
         const colorsRed = createTagColor('li', `${colorStorage === 'red' && 'selected-color'}`, 'red', 'red');
-        colorList.append(colorsRed);
+        colorList && colorList.append(colorsRed);
         const colorsOrange = createTagColor(
             'li',
             `${colorStorage === 'orange' && 'selected-color'}`,
@@ -106,29 +109,32 @@ export class Controller {
             'orange'
         );
 
-        colorList.append(colorsOrange);
+        colorList && colorList.append(colorsOrange);
         const colorsBrown = createTagColor('li', `${colorStorage === 'brown' && 'selected-color'}`, 'brown', 'brown');
-        colorList.append(colorsBrown);
+        colorList && colorList.append(colorsBrown);
         const colorsLilac = createTagColor('li', `${colorStorage === 'lilac' && 'selected-color'}`, 'lilac', 'lilac');
-        colorList.append(colorsLilac);
+        colorList && colorList.append(colorsLilac);
         const colorsGreen = createTagColor('li', `${colorStorage === 'green' && 'selected-color'}`, 'green', 'green');
-        colorList.append(colorsGreen);
+        colorList && colorList.append(colorsGreen);
 
-        colorList.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LI') {
-                document.querySelectorAll('.selected-color').forEach((item) => {
-                    item.classList.remove('selected-color');
-                });
-                event.target.classList.add('selected-color');
-                const colorName = event.target.innerHTML;
-                localStorage.setItem('color', colorName);
-                if (colorName === 'all') {
-                    localStorage.removeItem('color');
+        colorList &&
+            colorList.addEventListener('click', (event) => {
+                const target = event.target as HTMLElement;
+
+                if (target.tagName === 'LI') {
+                    document.querySelectorAll('.selected-color').forEach((item) => {
+                        item.classList.remove('selected-color');
+                    });
+                    target.classList.add('selected-color');
+                    const colorName = target.innerHTML;
+                    localStorage.setItem('color', colorName);
+                    if (colorName === 'all') {
+                        localStorage.removeItem('color');
+                    }
+                    this.view.deleteCards();
+                    this.view.rendering();
                 }
-                this.view.deleteCards();
-                this.view.rendering();
-            }
-        });
+            });
     };
 
     renderingSizes = () => {
@@ -137,35 +143,37 @@ export class Controller {
         this.section.append(size);
         const sizesTitle = createTag('h2', 'controller_title', 'Sizes');
         size.append(sizesTitle);
-        const sizeList = createTag('ul', '', '');
+        const sizeList = createTag('ul', '', '') as HTMLElement;
         size.append(sizeList);
         const sizeAll = createTag('li', `${!sizeStorage && 'selected-size'}`, 'all');
-        sizeList.append(sizeAll);
+        sizeList && sizeList.append(sizeAll);
         const sizeS = createTag('li', `${sizeStorage === 'S' && 'selected-size'}`, 'S');
-        sizeList.append(sizeS);
+        sizeList && sizeList.append(sizeS);
         const sizeM = createTag('li', `${sizeStorage === 'M' && 'selected-size'}`, 'M');
-        sizeList.append(sizeM);
+        sizeList && sizeList.append(sizeM);
         const sizeL = createTag('li', `${sizeStorage === 'L' && 'selected-size'}`, 'L');
-        sizeList.append(sizeL);
+        sizeList && sizeList.append(sizeL);
         const sizeXL = createTag('li', `${sizeStorage === 'XL' && 'selected-size'}`, 'XL');
-        sizeList.append(sizeXL);
+        sizeList && sizeList.append(sizeXL);
         const sizeXXL = createTag('li', `${sizeStorage === 'XXL' && 'selected-size'}`, 'XXL');
-        sizeList.append(sizeXXL);
-        sizeList.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LI') {
-                document.querySelectorAll('.selected-size').forEach((item) => {
-                    item.classList.remove('selected-size');
-                });
-                event.target.classList.add('selected-size');
-                const sizeName = event.target.innerHTML;
-                localStorage.setItem('size', sizeName);
-                this.view.deleteCards();
-                if (sizeName === 'all') {
-                    localStorage.removeItem('size');
+        sizeList && sizeList.append(sizeXXL);
+        sizeList &&
+            sizeList.addEventListener('click', (event) => {
+                const target = event.target as HTMLElement;
+                if (target.tagName === 'LI') {
+                    document.querySelectorAll('.selected-size').forEach((item) => {
+                        item.classList.remove('selected-size');
+                    });
+                    target.classList.add('selected-size');
+                    const sizeName = target.innerHTML;
+                    localStorage.setItem('size', sizeName);
+                    this.view.deleteCards();
+                    if (sizeName === 'all') {
+                        localStorage.removeItem('size');
+                    }
+                    this.view.rendering();
                 }
-                this.view.rendering();
-            }
-        });
+            });
     };
 
     renderingPopular = () => {
@@ -236,7 +244,7 @@ export class Controller {
         });
     };
 
-    onDisableControllers = (check) => {
+    onDisableControllers = (check: boolean) => {
         if (check) {
             this.controllers.forEach((item) => {
                 document.querySelector(item)?.classList.add('disabled');
@@ -248,13 +256,13 @@ export class Controller {
         }
     };
 
-    onRemoveSelection = (data) => {
-        data.forEach((item) => {
+    onRemoveSelection = (data: string[]) => {
+        data.forEach((item: string) => {
             document.querySelector(`.${item}`)?.classList.remove(item);
         });
     };
 
-    onRemoveAllSelected = (data) => {
+    onRemoveAllSelected = (data: string) => {
         document.querySelectorAll(`.${data}`).forEach((item) => {
             item.classList.remove(data);
         });
