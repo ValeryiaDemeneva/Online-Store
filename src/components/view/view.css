@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+NSW+ACT+Foundation:wght@700&display=swap');
+
+.view_section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    width: 300px;
+    box-shadow: -8px 5px 8px 5px rgba(34, 60, 80, 0.2);
+    margin: 20px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    transition: 0.2s;
+    max-height: 620px;
+}
+
+.card:hover {
+    background-color: rgba(251, 208, 241, 0.446);
+    transition: 0.2s;
+}
+.image {
+    width: 100%;
+    max-height: 270px;
+}
+
+.selected-brand {
+    color: rgb(255, 0, 200);
+}
+.selected-color {
+    color: rgb(255, 0, 200);
+    border: 5px solid black !important;
+}
+.selected-size {
+    color: rgb(255, 0, 200);
+}
+.card-title {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    align-items: center;
+}
+.card-item {
+    padding: 0;
+    margin: 2%;
+}
+.root {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.controller_section {
+    width: 150%;
+    max-width: 300px;
+    text-align: center;
+}
+.controller_section ul {
+    padding: 0;
+    margin: 0;
+}
+.controller_section li {
+    list-style-type: none;
+}
+.controller_title {
+    align-items: center;
+}
+.colors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.all {
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin: 0.6%;
+}
+
+.popular-item {
+    color: white !important;
+    background-color: black !important;
+}
+
+.buy-item {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    /* border: 1px solid #91c9ff; */
+    outline: none;
+    box-shadow: -8px 5px 8px 5px rgba(34, 60, 80, 0.2);
+    transition: 1s ease-in-out;
+}
+.buy-item:hover {
+    transition: 1s ease-in-out;
+    background: grey;
+}
+
+.selected-card {
+    background-color: rgb(255, 255, 255);
+
+    opacity: 0.1;
+}
+
+.cleaner {
+    width: 50px;
+    background-size: contain;
+    height: 50px;
+    margin-left: 3px;
+    background-repeat: no-repeat;
+    background-image: url('../../image/крест.png');
+    background-size: 40%;
+}
+
+.search_section {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.cleaner-sort {
+    width: 150px;
+    padding: 10px;
+    border: 2px solid black;
+}
+.sort-year-up,
+.sort-year-down {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort-alphabet-up,
+.sort-alphabet-down {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-sort-year {
+    border: 5px solid red;
+}
+.selected-sort-alhp {
+    border: 5px solid green;
+}
+
+.view_empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: 'Shadows Into Light', cursive;
+    color: rgb(255, 0, 200);
+}

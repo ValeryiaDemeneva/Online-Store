@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "noUiSlider": ["./node_modules/nouislider/dist/nouislider"]
+        },
+        "allowJs": true,
+        "target": "es2016",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true
+    }
+}

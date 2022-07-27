@@ -1,0 +1,59 @@
+.selected-color {
+    border: 5px solid black;
+}
+.selected-popular {
+    color: rgb(255, 0, 200);
+}
+
+.colors li {
+    width: 25px;
+    height: 25px;
+    font-size: 1px;
+    border-radius: 50%;
+    margin: 0.6%;
+    border: 1px solid black;
+}
+#beige {
+    background: rgb(224, 212, 194);
+}
+#colorful {
+    background: linear-gradient(rgb(6, 6, 246), pink);
+}
+#white {
+    background: white;
+}
+#violet {
+    background: rgb(214, 171, 244);
+}
+#black {
+    background: black;
+}
+#blue {
+    background: rgb(71, 178, 227);
+}
+#red {
+    background: red;
+}
+#orange {
+    background: rgb(247, 196, 84);
+}
+#brown {
+    background: rgb(62, 51, 51);
+}
+#lilac {
+    background: blueviolet;
+}
+#green {
+    background: rgb(13, 105, 67);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.year-slider,
+.prices-slider {
+    width: 70%;
+    margin: 20px;
+}
