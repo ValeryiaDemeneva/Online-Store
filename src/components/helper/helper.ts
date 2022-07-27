@@ -23,7 +23,6 @@ export const createTag: CreateTag = (tag: string, classList = '', value = '') =>
 };
 type CreateTagId = (tag: string, id: string, parent: Element | null) => Element;
 export const createTagId: CreateTagId = (tag: string, id: string, parent: Element | null) => {
-    console.log(`dekdieudiew, ${typeof parent}`, parent);
     const elem = document.createElement(tag);
     elem.id = id;
     parent?.append(elem);
